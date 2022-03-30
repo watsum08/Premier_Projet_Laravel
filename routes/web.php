@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MoviesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [MoviesController::class, 'getAll']);
+Route::get('/addfilm', function() {
+    return view('/addfilm');
 });
+Route::post('/addfilm', [MoviesController::class, 'create']);
